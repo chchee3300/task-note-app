@@ -1,0 +1,180 @@
+/* 基本樣式 */
+body {
+    font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: #1a1b1e;
+    color: #e0e0e0;
+    margin: 0;
+    padding: 20px;
+}
+
+/* 基本容器樣式 */
+#app {
+    max-width: 800px;
+    margin: 40px auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* 主要容器樣式 */
+.checklist-container,
+.notes-container {
+    background: #2d2d30;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+/* 標題樣式 */
+h1, h2 {
+    color: #e0e0e0;
+}
+
+h1 {
+    text-align: center;  /* 添加置中對齊 */
+    margin: 20px 0;     /* 添加上下邊距 */
+}
+
+h1 a {
+    color: #e0e0e0;
+    text-decoration: none;
+}
+
+/* 輸入框和按鈕樣式 */
+.input-group {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 15px;
+}
+
+input[type="text"] {
+    flex: 1;
+    padding: 8px 12px;
+    border-radius: 4px;
+    border: 1px solid #404040;
+    background: #23283a;
+    color: #e0e0e0;
+}
+
+button {
+    background: #5c6bc0;
+    color: #ffffff;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+button:hover {
+    background: #3f51b5;
+}
+
+/* 任務列表樣式 */
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+li {
+    padding: 10px;
+    border-bottom: 1px solid #404040;
+    transition: all 0.3s ease;
+}
+
+li:hover {
+    background: #383838;
+}
+
+/* 浮動時鐘和番茄鐘樣式 */
+.floating-clock,
+.pomodoro-panel {
+    position: fixed;
+    background-color: #2d2d30;
+    color: #e0e0e0;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.3);
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    z-index: 1000;
+}
+
+.floating-clock {
+    right: 24px;
+    bottom: 24px;
+    padding: 15px 20px;
+    background-color: #2d2d30 !important;  /* 強制使用深色背景 */
+    color: #e0e0e0 !important;            /* 確保文字顏色為亮色 */
+}
+
+.pomodoro-panel {
+    position: absolute;
+    right: 0;
+    bottom: 100%;
+    margin-bottom: 10px;
+    padding: 20px;
+    width: 250px;
+}
+
+/* 番茄鐘按鈕樣式 */
+.pomodoro-panel button {
+    background: #5c6bc0;
+    color: #ffffff;
+    padding: 8px 16px;
+    margin: 4px;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.pomodoro-panel button:hover {
+    background: #3f51b5;
+}
+
+/* 計時器樣式 */
+.timer-display {
+    font-size: 1.2em;
+    font-weight: bold;
+    background: transparent;
+    border: none;
+    width: 60px;
+    text-align: center;
+    color: #e0e0e0;
+    transition: all 0.3s ease;
+}
+
+/* 番茄鐘輸入框樣式 */
+.pomodoro-panel input[type="number"] {
+    background-color: #2d2d30;
+    color: #e0e0e0;
+    border: 1px solid #404040;
+}
+
+/* 狀態文字樣式 */
+.pomodoro-status {
+    color: #e0e0e0;
+    margin: 12px 0;
+    font-weight: 500;
+    text-align: center;
+}
+
+/* 已完成任務樣式 */
+.task-done {
+    text-decoration: line-through;
+    color: #666;
+}
+
+/* 捲軸樣式 */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #2d2d30;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #666;
+    border-radius: 4px;
+}

@@ -1,0 +1,32 @@
+{
+  "name": "task-note-app",
+  "version": "1.0.0",
+  "description": "A simple task management and note-taking application with a task checklist and timestamp note-taking tool.",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "webpack serve --mode development",
+    "build": "webpack --mode production"
+  },
+  "keywords": [
+    "task",
+    "note",
+    "management",
+    "checklist",
+    "timestamp"
+  ],
+  "author": "Your Name",
+  "license": "MIT",
+  "dependencies": {
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
+  },
+  "devDependencies": {
+    "webpack": "^5.64.4",
+    "webpack-cli": "^4.9.1",
+    "webpack-dev-server": "^3.11.2",
+    "babel-loader": "^8.2.3",
+    "babel-core": "^7.0.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1"
+  }
+}

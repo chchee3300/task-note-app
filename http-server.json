@@ -1,0 +1,6 @@
+{
+    "root": ".",
+    "port": 3030,
+    "cors": true,
+    "cache": -1
+}

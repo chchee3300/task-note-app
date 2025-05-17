@@ -1,0 +1,122 @@
+body {
+    font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: #1a1b1e;
+    color: #e0e0e0;
+    margin: 0;
+    padding: 20px;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    color: #e0e0e0;
+    margin-bottom: 30px;
+}
+
+.new-record {
+    display: flex;
+    gap: 10px;
+    margin: 20px 0;
+    padding: 20px;
+    background: #2d2d30;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+input[type="text"] {
+    flex: 1;
+    padding: 8px 12px;
+    border-radius: 4px;
+    border: 1px solid #404040;
+    background: #23283a;
+    color: #e0e0e0;
+}
+
+button {
+    background: #5c6bc0;
+    color: #ffffff;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+button:hover {
+    background: #3f51b5;
+}
+
+.record-list {
+    margin-top: 20px;
+}
+
+.record-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    margin-bottom: 10px;
+    background: #2d2d30;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+.no-records {
+    text-align: center;
+    color: #888;
+    padding: 20px;
+    background: #2d2d30;
+    border-radius: 8px;
+}
+
+.error {
+    color: #dc3545;
+    padding: 20px;
+    background: #2d2d30;
+    border-radius: 8px;
+    margin-top: 10px;
+}
+
+/* 確認視窗樣式 */
+.confirm-dialog {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #2d2d30;
+    border-radius: 8px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.3);
+    padding: 20px;
+    z-index: 10000;
+    text-align: center;
+}
+
+.confirm-dialog .message {
+    color: #e0e0e0;
+    margin-bottom: 15px;
+}
+
+.confirm-dialog .buttons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.confirm-dialog button {
+    background: #5c6bc0;
+    color: #ffffff;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.confirm-dialog button:hover {
+    background: #3f51b5;
+}
