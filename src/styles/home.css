@@ -66,6 +66,29 @@ button:hover {
     box-shadow: 0 2px 8px rgba(0,0,0,0.2);
 }
 
+.record-item .actions button {
+    padding: 5px 10px;
+    margin-left: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.record-item .open-btn {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.record-item .delete-btn {
+    background-color: #f44336;
+    color: white;
+}
+
+.record-item .actions button:hover {
+    opacity: 0.8;
+}
+
 .no-records {
     text-align: center;
     color: #888;

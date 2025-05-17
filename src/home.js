@@ -6,57 +6,38 @@ async function renderList() {
     list.innerHTML = '';
     
     try {
-        const records = await getAllFiles();
-        if (records.length === 0) {
-            list.innerHTML = '<div class="no-records">尚無記錄檔案</div>';
+        const files = await getAllFiles();
+        if (files.length === 0) {
+            list.innerHTML = '<div class="no-records">No records found</div>';
             return;
         }
-
-        records.forEach(name => {
+        
+        files.forEach(file => {
             const div = document.createElement('div');
             div.className = 'record-item';
             div.innerHTML = `
-                <span class="record-name">${name}</span>
-                <div>
-                    <button class="open-btn">開啟</button>
-                    <button class="delete-btn">刪除</button>
+                <span>${file}</span>
+                <div class="actions">
+                    <button class="open-btn">Open</button>
+                    <button class="delete-btn">Delete</button>
                 </div>
             `;
-
-            div.querySelector('.record-name').addEventListener('contextmenu', async (e) => {
-                e.preventDefault();
-                const newName = prompt('編輯檔案名稱:', name);
-                if (newName && newName.trim() && newName !== name) {
-                    try {
-                        const existingRecords = await getAllFiles();
-                        if (existingRecords.includes(newName.trim())) {
-                            alert('檔案名稱已存在');
-                            return;
-                        }
-                        
-                        const oldData = await getRecord(name);
-                        await saveRecord(newName.trim(), oldData);
-                        await deleteRecord(name);
-                        await renderList();
-                    } catch (error) {
-                        console.error('Error renaming file:', error);
-                        alert('重新命名失敗');
-                    }
-                }
-            });
-
+            
             div.querySelector('.open-btn').onclick = () => {
-                window.location.href = `index.html?file=${encodeURIComponent(name)}`;
+                window.location.href = `index.html?file=${encodeURIComponent(file)}`;
             };
-
+            
             div.querySelector('.delete-btn').onclick = async () => {
                 ConfirmDialog.show(
-                    '確定要刪除這個檔案嗎？',
+                    'Are you sure you want to delete this record?',
                     async () => {
-                        await deleteRecord(name);
-                        await renderList();
-                    },
-                    () => {}
+                        try {
+                            await deleteRecord(file);
+                            await renderList();
+                        } catch (error) {
+                            console.error('Failed to delete record:', error);
+                        }
+                    }
                 );
             };
             
@@ -64,7 +45,7 @@ async function renderList() {
         });
     } catch (error) {
         console.error('Error rendering list:', error);
-        list.innerHTML = '<div class="error">載入失敗</div>';
+        list.innerHTML = '<div class="error">Failed to load records</div>';
     }
 }
 
