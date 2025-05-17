@@ -64,7 +64,7 @@ class TimestampNotes {
 
         const input = document.createElement('input');
         input.type = 'text';
-        input.placeholder = '輸入新筆記...';
+        input.placeholder = 'Enter new note...';
 
         input.addEventListener('keypress', (e) => {
             if (e.key === 'Enter' && input.value.trim()) {
@@ -74,7 +74,7 @@ class TimestampNotes {
         });
 
         const addButton = document.createElement('button');
-        addButton.textContent = '新增';
+        addButton.textContent = 'Add';
         addButton.onclick = () => {
             if (input.value.trim()) {
                 this.addNote(input.value.trim());
@@ -93,14 +93,14 @@ class TimestampNotes {
         controls.style.marginBottom = '8px';
 
         const toggleBtn = document.createElement('button');
-        toggleBtn.textContent = this.visible ? '隱藏' : '顯示';
+        toggleBtn.textContent = this.visible ? 'Hide' : 'Show';
         toggleBtn.addEventListener('click', () => {
             this.toggleList();
-            toggleBtn.textContent = this.visible ? '隱藏' : '顯示';
+            toggleBtn.textContent = this.visible ? 'Hide' : 'Show';
         });
 
         const deleteAllBtn = document.createElement('button');
-        deleteAllBtn.textContent = '刪除所有';
+        deleteAllBtn.textContent = 'Delete All';
         deleteAllBtn.addEventListener('click', () => this.deleteAllNotes());
 
         controls.appendChild(toggleBtn);
@@ -127,7 +127,7 @@ class TimestampNotes {
             li.style.justifyContent = 'space-between';
             li.addEventListener('contextmenu', (e) => {
                 e.preventDefault();
-                const newText = prompt('編輯筆記:', note.text);
+                const newText = prompt('Edit note:', note.text);
                 if (newText !== null && newText.trim() !== '') {
                     this.notes[index].text = newText.trim();
                     this.update();
@@ -156,12 +156,12 @@ class TimestampNotes {
             span.appendChild(textSpan);
 
             const convertBtn = document.createElement('button');
-            convertBtn.textContent = '轉為任務';
+            convertBtn.textContent = 'Convert to Task';
             convertBtn.style.marginLeft = '12px';
             convertBtn.addEventListener('click', () => this.convertToTask(index));
 
             const deleteBtn = document.createElement('button');
-            deleteBtn.textContent = '刪除';
+            deleteBtn.textContent = 'Delete';
             deleteBtn.style.marginLeft = '12px';
             deleteBtn.addEventListener('click', () => this.deleteNote(index));
 

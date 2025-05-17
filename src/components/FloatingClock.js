@@ -53,7 +53,7 @@ class FloatingClock {
 
         // 輸入設定
         const sessionLabel = document.createElement('label');
-        sessionLabel.textContent = '工作(分鐘): ';
+        sessionLabel.textContent = 'Work (min): ';
         sessionLabel.style.color = '#e0e0e0';  // 修改標籤文字顏色
         this.sessionInput = document.createElement('input');
         this.sessionInput.type = 'number';
@@ -65,7 +65,7 @@ class FloatingClock {
         sessionLabel.appendChild(this.sessionInput);
 
         const breakLabel = document.createElement('label');
-        breakLabel.textContent = ' 休息(分鐘): ';
+        breakLabel.textContent = ' Break (min): ';
         breakLabel.style.color = '#e0e0e0';  // 修改標籤文字顏色
         this.breakInput = document.createElement('input');
         this.breakInput.type = 'number';
@@ -83,11 +83,11 @@ class FloatingClock {
 
         // 控制按鈕
         this.startBtn = document.createElement('button');
-        this.startBtn.textContent = '開始';
+        this.startBtn.textContent = 'Start';
         this.startBtn.addEventListener('click', () => this.startPomodoro());
 
         this.stopBtn = document.createElement('button');
-        this.stopBtn.textContent = '停止';
+        this.stopBtn.textContent = 'Stop';
         this.stopBtn.style.marginLeft = '8px';
         this.stopBtn.addEventListener('click', () => this.stopPomodoro());
 
@@ -189,7 +189,7 @@ class FloatingClock {
             if (!this.isBreak) {
                 this.isBreak = true;
                 this.remaining = this.breakDuration * 60;
-                this.pomodoroStatus.textContent = '休息時間開始！';
+                this.pomodoroStatus.textContent = 'Break time starts!';
                 // 播放休息開始音效
                 this.notificationSound.currentTime = 0;
                 this.notificationSound.play().catch(error => {
@@ -197,7 +197,7 @@ class FloatingClock {
                 });
             } else {
                 this.stopPomodoro();
-                this.pomodoroStatus.textContent = '蕃茄鐘結束！';
+                this.pomodoroStatus.textContent = 'Pomodoro finished!';
                 // 播放結束音效
                 this.notificationSound.currentTime = 0;
                 this.notificationSound.play().catch(error => {
@@ -211,8 +211,8 @@ class FloatingClock {
         const min = String(Math.floor(this.remaining / 60)).padStart(2, '0');
         const sec = String(this.remaining % 60).padStart(2, '0');
         this.pomodoroStatus.textContent = this.isBreak
-            ? `休息中：${min}:${sec}`
-            : `工作中：${min}:${sec}`;
+            ? `Break: ${min}:${sec}`
+            : `Working: ${min}:${sec}`;
     }
 }
 

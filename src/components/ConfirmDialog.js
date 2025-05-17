@@ -11,8 +11,8 @@ class ConfirmDialog {
         dialog.innerHTML = `
             <div class="message">${message}</div>
             <div class="buttons">
-                <button class="confirm-btn">確定</button>
-                <button class="cancel-btn">取消</button>
+                <button class="confirm-btn">Confirm</button>
+                <button class="cancel-btn">Cancel</button>
             </div>
         `;
         

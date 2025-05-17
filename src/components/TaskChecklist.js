@@ -44,7 +44,7 @@ class TaskChecklist {
 
         const input = document.createElement('input');
         input.type = 'text';
-        input.placeholder = '輸入新任務...';
+        input.placeholder = 'Enter new task...';
 
         input.addEventListener('keypress', (e) => {
             if (e.key === 'Enter' && input.value.trim()) {
@@ -54,7 +54,7 @@ class TaskChecklist {
         });
 
         const addButton = document.createElement('button');
-        addButton.textContent = '新增';
+        addButton.textContent = 'Add';
         addButton.onclick = () => {
             if (input.value.trim()) {
                 this.addTask(input.value.trim());
@@ -72,14 +72,14 @@ class TaskChecklist {
         controls.style.marginBottom = '8px';
 
         const toggleBtn = document.createElement('button');
-        toggleBtn.textContent = this.visible ? '隱藏' : '顯示';
+        toggleBtn.textContent = this.visible ? 'Hide' : 'Show';
         toggleBtn.addEventListener('click', () => {
             this.toggleList();
-            toggleBtn.textContent = this.visible ? '隱藏' : '顯示';
+            toggleBtn.textContent = this.visible ? 'Hide' : 'Show';
         });
 
         const deleteAllBtn = document.createElement('button');
-        deleteAllBtn.textContent = '刪除所有';
+        deleteAllBtn.textContent = 'Delete All';
         deleteAllBtn.addEventListener('click', () => this.deleteAllTasks());
 
         controls.appendChild(toggleBtn);
@@ -106,7 +106,7 @@ class TaskChecklist {
             // 將右鍵選單移到 li 元素上
             li.addEventListener('contextmenu', (e) => {
                 e.preventDefault();
-                const newText = prompt('編輯任務:', task.text);
+                const newText = prompt('Edit task:', task.text);
                 if (newText !== null && newText.trim() !== '') {
                     this.tasks[idx].text = newText.trim();
                     this.update();
@@ -137,7 +137,7 @@ class TaskChecklist {
             label.appendChild(span);
 
             const deleteBtn = document.createElement('button');
-            deleteBtn.textContent = '刪除';
+            deleteBtn.textContent = 'Delete';
             deleteBtn.style.marginLeft = '12px';
             deleteBtn.addEventListener('click', () => this.deleteTask(idx));
 
